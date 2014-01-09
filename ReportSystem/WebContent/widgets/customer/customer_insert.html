@@ -1,0 +1,60 @@
+<script>
+function customerInsertCallback(json){
+	DWZ.ajaxDone(json);
+	alert("增加成功");
+	//navTab.closeCurrentTab();
+	//$('a[rel=navtab_searchdepart]','#left_container').click();
+}
+</script>
+<form method='post' action='api/customer/insert' onsubmit="return validateCallback(this, customerInsertCallback)" >
+<div class="pageFormContent" layoutH="50">
+	<fieldset>
+		<legend>基本信息</legend>
+		<dl>
+			<dt>客户名称：</dt>
+			<dd><input class="required" name="customer.customerName" type="text"></dd>
+		</dl>
+		<dl>
+			<dt>部门简称：</dt>
+			<dd><input name="customer.customerShortname"  type="text"  /></dd>
+		</dl>
+	</fieldset>
+	
+	<fieldset>
+		<legend>联系方式</legend>
+		<dl class="nowrap">
+			<dt>地址：</dt>
+			<dd><input name='address.province'/>&nbsp;省&nbsp;<input name='address.city'/>&nbsp;市&nbsp;<input name='address.district'/>&nbsp;区&nbsp;<input name='address.address'/></dd>
+		</dl>
+		<dl class="nowrap">
+			<dt>电话：</dt>
+			<dd><input type="text" name="customer.customerTelphone"/></dd>
+		</dl>
+		<dl class="nowrap">
+			<dt>传真：</dt>
+			<dd><input type="text" name="customer.customerFax"/></dd>
+		</dl>
+		<dl class="nowrap">
+			<dt>邮箱：</dt>
+			<dd><input type="text" name="customer.customerEmail"/></dd>
+		</dl>
+		<dl class="nowrap">
+			<dt>网址：</dt>
+			<dd><input type="text" name="customer.customerWeb"/></dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>其它信息</legend>
+		<dl class="nowrap">
+		<dt>备注：</dt>
+		<textarea name="customer.customerRemark"  cols="80" rows="2"></textarea>
+		</dl>
+	</fieldset>
+</div>
+<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+</div>
+</form>

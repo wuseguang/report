@@ -1,0 +1,98 @@
+<script type="text/javascript">
+	TableConfig['extractor_search_table'] = [
+			{
+				label : '注册号码',
+				html : '${enterpriseRegisterCode}'
+			},
+			{
+				label : '企业名称',
+				html : "<a onclick='return extractorInfoClick()' href='widgets/enterprise/extractor_info.html?extractorName=[extractorName]' data='{\"entUrl\":\"${enterpriseUrl}\"}' target='ajax' rel='extractor_enterpriseInfo'>${enterpriseName}</a>"
+			},
+			{
+				label : '法定代表人',
+				html : '${enterpriseLegalPerson}'
+			},
+			{
+				label : '状态',
+				html : '${enterpriseState}'
+			} ]
+	function extractorSearchSubmit(form) {
+		$(form).pagerForm({
+			parentBox : $(form).parent()
+		});
+		TableConfig.extractor_search_table[1].html=
+			TableConfig.extractor_search_table[1].html.replace('[extractorName]',$(form.extractorName).val());
+		//alert($(form.extractorName).val())
+		var data = $(_getPagerForm($(form).parent(), {})).serializeArray()
+		$('#extractor_search_table').attr('widgetData', JSON.stringify(data)).addClass('dataWidget')
+				.dataWidgetUpdate();
+		return false;
+	}
+	function extractorInfoClick(){
+		$('#extractor_enterpriseInfo').html('信息读取中...');
+		$('#extractor_tabs').tabs({currentIndex:1});
+		return false;
+	}
+	function extractorSearchClick(){
+		$('#extractor_tabs').tabs({currentIndex:0});
+		return true;
+	}
+</script>
+<style>
+
+#extractorBar li {
+    float: left;
+    margin: 7px;
+}
+</style>
+<div class="pageHeader">
+	<form id="pagerForm" method="post" action="#rel#">
+		<input type="hidden" name="pageNum" value="1" /> <input type="hidden"
+			name="numPerPage" value="10" /> <input type="hidden"
+			name="orderField" value="" /> <input type="hidden"
+			name="orderDirection" value="" />
+	</form>
+	<form rel="pagerForm" onsubmit="return extractorSearchSubmit(this);"
+		method="post">
+		<div id="extractorBar">
+			<ul >
+				<li><label>企业名称：</label> <input type="text" name="entName"
+					value="" /></li>
+				<li><label>注册号码：</label> <input type="text" name="entCode"
+					value="" /></li>
+					<li><label>抓取站点：</label> <select 
+					name="extractorName">
+						<option value="beijing">北京</option>
+						<option value="sh">上海</option>
+				</select></li>
+				<li><div class="button" style="margin-top: -3px;">
+						<div class="buttonContent">
+							<button type="submit" onclick='return extractorSearchClick()'>检索</button>
+						</div>
+					</div></li>
+				
+			</ul>
+		</div>
+	</form>
+</div>
+<div class="tabs" currentIndex="0" eventType="click" id="extractor_tabs">
+		<div class="tabsHeader">
+			<div class="tabsHeaderContent">
+				<ul>
+					<li><a href="javascript:;"><span>搜索结果</span></a></li>
+					<li><a href="javascript:;"><span>企业信息</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="tabsContent">
+			<div>
+<div class='dataWidget-table' id='extractor_search_table'
+	dataSource='api/entExtractor?extractorType=list'></div>
+			</div>
+			<div id="extractor_enterpriseInfo"></div>
+		</div>
+		<div class="tabsFooter">
+			<div class="tabsFooterContent"></div>
+		</div>
+	</div>
+

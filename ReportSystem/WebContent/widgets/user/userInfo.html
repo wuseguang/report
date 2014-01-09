@@ -1,0 +1,10 @@
+<div class='pageFormContent dataWidget dataWidget-info' layoutH='56' dataSource='api/user/info?id=#{id}'>
+<fieldset>
+<legend>基本信息</legend>
+<dl><dt>姓名</dt><dt>${info.userName}</dt></dl>
+<dl><dt>编号</dt><dt>${info.userCode}</dt></dl>
+<dl><dt>邮箱</dt><dt>${info.userEmail}</dt></dl>
+<dl><dt>身份证号码</dt><dt>${info.userIdcard}</dt></dl>
+<a class='dataWidget dataWidget-text' target="dialog" dataSource='api/depart/info?id=${info.departId}' rel="departinfo" href="widgets/depart/depart_info.html?id=${info.departId}">${info.departName}</a>
+</fieldset>
+</div>

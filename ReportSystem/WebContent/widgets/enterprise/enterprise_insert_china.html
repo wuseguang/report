@@ -1,0 +1,202 @@
+<script>
+	function enterpriseInsertCallback(json) {
+		DWZ.ajaxDone(json);
+		alert("增加成功");
+		//navTab.closeCurrentTab();
+		//$('a[rel=navtab_searchdepart]','#left_container').click();
+	}
+</script>
+<form method='post' action='api/enterprise/insert_ch'
+	onsubmit="return validateCallback(this, enterpriseInsertCallback)">
+	<div class="pageFormContent" layoutH="50">
+		<fieldset>
+			<legend>基本信息</legend>
+			<dl>
+				<dt>企业名称(中文)：</dt>
+				<dd>
+					<input class="required" name="enterprise.enterpriseNameCh"
+						type="text"> <a class="btnLook"
+						href="widgets/enterprise/extractor.html" lookupGroup="">查找带回</a>
+				</dd>
+			</dl>
+			<dl>
+				<dt>企业名称(英文)：</dt>
+				<dd>
+					<input name="enterprise.enterpriseNameEn" type="text">
+				</dd>
+			</dl>
+			<dl>
+				<dt>企业别名：</dt>
+				<dd>
+					<input name="enterprise.enterpriseNameAnother" type="text">
+				</dd>
+			</dl>
+			<dl>
+				<dt>机构代码：</dt>
+				<dd>
+					<input name="enterprise.enterpriseDepartCode" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>企业规模：</dt>
+				<dd>
+					<input name="enterprise.enterpriseScale" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>是否上市：</dt>
+				<dd>
+					<input name="enterprise.enterpriseIsListed" type="text" />
+				</dd>
+			</dl>
+
+		</fieldset>
+
+		<fieldset>
+			<legend>联系方式</legend>
+			<dl>
+				<dt>联系人：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseContactPerson" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>移动电话：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseMobile" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>传真：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseFax" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>固定电话：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseTelphone" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>邮箱：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseEmail" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>网址：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseWeb" />
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset>
+			<legend>注册信息</legend>
+			<dl>
+				<dt>法定代表人姓名：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseLegalPerson"
+						suggestUrl='api/person/search?search=true&' suggestFields=''
+						postField='personName' resultField='searchResult'
+						suggestFormat='编号:%{id}<br/>姓名:%{personName}<br/>性别:%{personSex}<br/>国籍:%{personRegion}<br/>身份证号码:%{personIdcard}<br/>' 
+						pkMap='{"personName":"enterprise.enterpriseLegalPerson"}'/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>注册号码：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseRegisterCode" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>注册地址：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseRegisterAddress" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>注册资本：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseRegisterCapital" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>实收资本：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterprisePaidinCapital" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>公司类型：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseType" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>企业状态：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseOperationState" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>经营范围：</dt>
+				<dd>
+					<textarea name="enterprise.enterpriseBusinessScope" cols="80"
+						rows="2"></textarea>
+				</dd>
+			</dl>
+			<dl>
+				<dt>成立日期：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseApprovalDay" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>营业期限自：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseBusinessStartDay" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>营业期限至：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseBusinessEndDay" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>登记机关：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseRegisterDepart" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>地税登记号：</dt>
+				<dd>
+					<input type="text" name="enterprise.enterpriseTaxCodeLocal" />
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset>
+			<legend>其它信息</legend>
+			<dl>
+				<dt>备注：</dt>
+				<textarea name="enterprise.enterpriseRemark" cols="80" rows="2"></textarea>
+			</dl>
+		</fieldset>
+	</div>
+	<div class="formBar">
+		<ul>
+			<li><div class="buttonActive">
+					<div class="buttonContent">
+						<button type="submit">提交</button>
+					</div>
+				</div></li>
+			<li><div class="button">
+					<div class="buttonContent">
+						<button type="button" class="close">取消</button>
+					</div>
+				</div></li>
+		</ul>
+	</div>
+</form>

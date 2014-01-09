@@ -1,0 +1,24 @@
+
+<div class="pageContent">
+	<form method="post" action="login" class="pageForm" onsubmit="return validateCallback(this, loginCallback)">
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit" style="color:red" id="login_msg"></div>
+			<div class="unit">
+				<label>登陆账号</label>
+				<input type="text" name="userCode" size="30" class="required"/>
+			</div>
+			<div class="unit">
+				<label>登陆密码</label>
+				<input type="password" name="userPassword" size="30" class="required"/>
+			</div>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">登陆</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+</div>
+

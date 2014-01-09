@@ -1,0 +1,43 @@
+<script type="text/javascript">
+TableConfig['person_search_table']=[{label:'姓名',html:'${personName}'},
+                                      {label:'区域',html:'${personRegion}'},
+                                      {label:'身份证号码',html:'${personIdcard}'},
+                                      {label:'创建者',
+                                    		  html:'<a class="dataWidget dataWidget-text" target="dialog" href="widgets/user/userInfo.html?id=${personCreatorId}" dataSource="api/user/info?id=${personCreatorId}">${info.userName}</a>'}]
+function personSearchSubmit(form){
+	$(form).pagerForm({parentBox:$(form).parent()});
+	var data=$(_getPagerForm($(form).parent(),{})).serializeArray()
+	$('#person_search_table').attr('widgetData',JSON.stringify(data)).dataWidgetUpdate();
+	$('#person_search_pagination').dataWidgetUpdate();
+	return false;
+}
+
+</script>
+<div class="pageHeader">
+<form id="pagerForm" method="post" action="#rel#">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="10" />
+	<input type="hidden" name="orderField" value="" />
+	<input type="hidden" name="orderDirection" value="" />
+</form>
+	<form rel="pagerForm" onsubmit="return personSearchSubmit(this);" method="post">
+	<div class="searchBar">
+		<ul class="searchContent">
+			<li>
+				<label>人员姓名：</label>
+				<input type="text" name="personName" value=""/>
+			</li>
+		</ul>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+<div class='dataWidget dataWidget-table' id='person_search_table' dataSource='api/person/search?search=true'>
+</div>
+<div class='panelBar dataWidget dataWidget-info' id="customer_search_pagination" dataSource='api/person/search?count=true'>
+<div class="pagination" rel="person_search_table" targetType="navTab" totalCount="${totalCount}" numPerPage="10" pageNumShown="10" currentPage="1"></div>
+</div>

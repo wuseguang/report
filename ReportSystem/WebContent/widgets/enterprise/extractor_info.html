@@ -1,0 +1,51 @@
+<div class="pageFormContent dataWidget dataWidget-info" dataSource="api/entExtractor?extractorType=info&extractorName=#{extractorName}" widgetData='{"entUrl":"#{entUrl}"}'>
+<button type="button" onclick='return extractor_fill(this)'>填充数据</button>
+<fieldset>
+<legend>注册信息</legend>
+<dl><dt>企业名称</dt><dd>${info.name}</dd></dl>
+<dl><dt>注册号码</dt><dd>${info.registerCode}</dd></dl>
+<dl><dt>地址</dt><dd>${info.address}</dd></dl>
+<dl><dt>法定代表人</dt><dd>${info.legalPerson}</dd></dl>
+<dl><dt>股东(发起人)</dt><dd>${info.stockholder}</dd></dl>
+<dl><dt>注册资本</dt><dd>${info.registerCapital}</dd></dl>
+<dl><dt>实收资本</dt><dd>${info.paidinCapital}</dd></dl>
+<dl><dt>公司类型</dt><dd>${info.enterpriseType}</dd></dl>
+<dl><dt>企业状态</dt><dd>${info.enterpriseState}</dd></dl>
+<dl><dt>许可经营项目</dt><dd>${info.certifiedBusiness}</dd></dl>
+<dl><dt>一般经营项目</dt><dd>${info.generalBusiness}</dd></dl>
+<dl><dt>经营范围项下标注</dt><dd>${info.businessScopRemark}</dd></dl>
+<dl><dt>营业期限自</dt><dd>${info.businessStart}</dd></dl>
+<dl><dt>营业期限至</dt><dd>${info.businessEnd}</dd></dl>
+<dl><dt>成立日期</dt><dd>${info.createTime}</dd></dl>
+<dl><dt>登记机关</dt><dd>${info.registerDepart}</dd></dl>
+<dl><dt>组织机构代码</dt><dd>${info.departCode}</dd></dl>
+<dl><dt>代码证颁发机关</dt><dd>${info.jurisdictionDepart}</dd></dl>
+</fieldset>
+</div>
+<script>
+function extractor_fill(btn){
+	var $this=$(btn)
+	var pkMap={
+		'enterprise.enterpriseNameCh':'name',
+		'enterprise.enterpriseDepartCode':'departCode',
+		'enterprise.enterpriseLegalPerson':'legalPerson',
+		'enterprise.enterpriseRegisterCode':'registerCode',
+		'enterprise.enterpriseRegisterAddress':'address',
+		'enterprise.enterpriseRegisterCapital':'registerCapital',
+		'enterprise.enterprisePaidinCapital':'paidinCapital',
+		'enterprise.enterpriseType':'enterpriseType',
+		'enterprise.enterpriseOperationState':'enterpriseState',
+		'enterprise.enterpriseBusinessScope':'generalBusiness',
+		'enterprise.enterpriseApprovalDay':'createTime',
+		'enterprise.enterpriseBusinessStartDay':'businessStart',
+		'enterprise.enterpriseBusinessEndDay':'businessEnd',
+		'enterprise.enterpriseRegisterDepart':'registerDepart',
+		'enterprise.enterpriseTaxCodeLocal':'taxCodeLocal'
+	};
+	var data=$this.parent().data('dataWidgetData');
+	var bringData={};
+	$.each(pkMap,function(k,v){bringData[k]=data.info[v]});
+	$.bringBack(bringData)
+	//alert(JSON.stringify(bringData))
+}
+</script>

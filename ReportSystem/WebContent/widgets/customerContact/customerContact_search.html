@@ -1,0 +1,12 @@
+<script type="text/javascript">
+TableConfig['contactofcustomer']=
+	[{label:'姓名',html:'${customerContactName}'},
+	 {label:'手机',html:'${customerContactMobile}'}]
+</script>
+<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" title="添加联系人-#{customerName}" href="widgets/customerContact/customerContact_insert.html?customerId=#{customerId}" target="dialog" widht="610" height="420"><span>添加</span></a></li>
+		</ul>
+</div>
+<div id="contactofcustomer" class="dataWidget dataWidget-table" dataSource="api/customerContact/search?search=true&customerId=#{customerId}">
+</div>

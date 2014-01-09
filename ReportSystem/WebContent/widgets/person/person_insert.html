@@ -1,0 +1,132 @@
+<script>
+	function personInsertCallback(json) {
+		DWZ.ajaxDone(json);
+		alert("增加成功");
+		navTab.closeCurrentTab();
+		$('a[rel=navtab_personsearch]','#left_container').click();
+	}
+</script>
+<form method='post' action='api/person/insert'
+	onsubmit="return validateCallback(this, personInsertCallback)">
+	<div class="pageFormContent" layoutH="50">
+		<fieldset>
+			<legend>基本信息</legend>
+			<dl>
+				<dt>人员姓名：</dt>
+				<dd>
+					<input class="required" name="person.personName" type="text">
+				</dd>
+			</dl>
+			<dl>
+				<dt>人员姓名（英文）：</dt>
+				<dd>
+					<input name="person.personNameEn" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>性别：</dt>
+				<dd>
+					<input name="person.personSex" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>出生日期：</dt>
+				<dd>
+					<input name="person.personBirthday" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>住址：</dt>
+				<dd>
+					<input name="person.personAddress" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>教育程度：</dt>
+				<dd>
+					<input name="person.personEducationLevel" type="text" />
+				</dd>
+			</dl>
+		</fieldset>
+
+		<fieldset>
+			<legend>其它信息</legend>
+			<dl>
+				<dt>区域：</dt>
+				<dd>
+					<input name="person.personRegion" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>民族：</dt>
+				<dd>
+					<input name="person.personNation" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>身份证号码：</dt>
+				<dd>
+					<input name="person.personIdcard" type="text" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>护照号码：</dt>
+				<dd>
+					<input name="person.personPassport" type="text" />
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset>
+			<legend>备注信息</legend>
+			<dl class="nowrap">
+				<dt>特长：</dt>
+				<dd>
+					<textarea name="person.personSpecialty" cols="80" rows="2"></textarea>
+				</dd>
+
+			</dl>
+			<dl class="nowrap">
+				<dt>工作经历：</dt>
+				<dd>
+					<textarea name="person.personWorkExperience" cols="80" rows="2"></textarea>
+				</dd>
+
+			</dl>
+			<dl class="nowrap">
+				<dt>公开信息：</dt>
+				<dd>
+					<textarea name="person.personPulicInfo" cols="80" rows="2"></textarea>
+				</dd>
+
+			</dl>
+			<dl class="nowrap">
+				<dt>不良记录：</dt>
+				<dd>
+					<textarea name="person.personBadRecord" cols="80" rows="2"></textarea>
+				</dd>
+
+			</dl>
+			<dl class="nowrap">
+				<dt>备注：</dt>
+				<dd>
+					<textarea name="person.personRemark" cols="80" rows="2"></textarea>
+				</dd>
+
+			</dl>
+		</fieldset>
+	</div>
+	<div class="formBar">
+		<ul>
+			<li><div class="buttonActive">
+					<div class="buttonContent">
+						<button type="submit">提交</button>
+					</div>
+				</div></li>
+			<li><div class="button">
+					<div class="buttonContent">
+						<button type="button" class="close">取消</button>
+					</div>
+				</div></li>
+		</ul>
+	</div>
+</form>

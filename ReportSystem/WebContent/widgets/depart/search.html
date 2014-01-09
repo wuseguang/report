@@ -1,0 +1,23 @@
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="$(this).pagerForm({parentBox:$(this).parent()});return divSearch(this,'_ReportSystem_api_depart_search');" action="api/depart/search" method="post">
+	<div class="searchBar">
+		<ul class="searchContent">
+			<li>
+				<label>部门名称：</label>
+				<input type="text" name="departName" value=""/>
+			</li>
+			<li>
+				<label>部门代码：</label>
+				<input type="text" name="departCode" value=""/>
+			</li>
+		</ul>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+<div class='pageContent' id='depart_search_table'>
+</div>

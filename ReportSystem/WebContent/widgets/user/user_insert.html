@@ -1,0 +1,42 @@
+<script>
+function userInsertCallback(json){
+	DWZ.ajaxDone(json);
+	alert("增加成功");
+	navTab.closeCurrentTab();
+	$('a[rel=navtab_usersearch]','#left_container').click();
+}
+</script>
+<form method='post' action='api/user/insert' onsubmit="return validateCallback(this, userInsertCallback)" >
+<input name='userBase.departId' type='hidden'></input>
+<div class="pageFormContent" layoutH="50">
+	<fieldset>
+		<legend>员工职位信息信息</legend>
+		<dl>
+			<dt>员工编号：</dt>
+			<dd><input class="required" name="userBase.userCode" noMatchTitle='可以使用' canEdit=true type="text" resultField='searchResult' suggestFields='userCode' suggestUrl='api/user/coderecmd?search=true'/></dd>
+		</dl>
+		<dl>
+			<dt>所属部门：</dt>
+			<dd><input class="required" name="depart.departName" noMatchTitle='没有此部门'  type="text"  pkMap='{"id":"userBase.departId"}' resultField='searchResult' suggestFields='departName' suggestUrl='api/depart/namerecmd?search=true'/></dd>
+		</dl>
+	</fieldset>
+	
+	<fieldset>
+		<legend>基本信息</legend>
+		<dl class="nowrap">
+			<dt>姓名：</dt>
+			<dd><input name="userBase.userName" class='required' type='text'></input></dd>
+		</dl>
+		<dl class="nowrap">
+			<dt>身份证号：</dt>
+			<dd><input name="userBase.userIdcard"  type='text' class='required'></input></dd>
+		</dl>
+	</fieldset>
+</div>
+<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+</div>
+</form>

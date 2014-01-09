@@ -1,0 +1,33 @@
+
+<div class="pageHeader">
+<form id="pagerForm" method="post" action="#rel#">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="10" />
+	<input type="hidden" name="orderField" value="" />
+	<input type="hidden" name="orderDirection" value="" />
+</form>
+	<form rel="pagerForm" onsubmit="return departSearchSubmit(this);" method="post">
+	<div class="searchBar">
+		<ul class="searchContent">
+			<li>
+				<label>部门名称：</label>
+				<input type="text" name="departName" value=""/>
+			</li>
+			<li>
+				<label>部门代码：</label>
+				<input type="text" name="departCode" value=""/>
+			</li>
+		</ul>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+<div class='dataWidget dataWidget-table' id='depart_search_table' dataSource='api/depart/search?search=true'>
+</div>
+<div class='panelBar dataWidget dataWidget-info' dataSource='api/depart/search?count=true'>
+<div class="pagination" rel="depart_search_table" targetType="navTab" totalCount="${totalCount}" numPerPage="10" pageNumShown="10" currentPage="1"></div>
+</div>

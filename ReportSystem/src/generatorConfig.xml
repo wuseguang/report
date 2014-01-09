@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="E:\workspace\ReportSystem\WebContent\WEB-INF\lib\mysql-connector-java-5.1.27-bin.jar" />
+  <context id="context1" targetRuntime="MyBatis3">
+  	<plugin type="com.wuseguang.mybatis.generator.plugin.ExtendsExampleClassPlugin">
+  		<property name="supserClassName" value="com.wuseguang.report.db.pojo.BaseExample" /></plugin>
+  	<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+  		connectionURL="jdbc:mysql://127.0.0.1:3306/reportdb?characterEncoding=utf8"
+  		userId="root" password="mysql986" />
+  	<javaModelGenerator targetPackage="com.wuseguang.report.db.pojo"
+  		targetProject="ReportSystem">
+  		<property name="enableSubPackages" value="true" />
+  	</javaModelGenerator>
+  	<sqlMapGenerator targetPackage="com.wuseguang.report.db.mapper"
+  		targetProject="ReportSystem">
+  		<property name="enableSubPackages" value="true"></property>
+  	</sqlMapGenerator>
+  	<javaClientGenerator targetPackage="com.wuseguang.report.db.dao"
+  		targetProject="ReportSystem" type="XMLMAPPER">
+  		<property name="enableSubPackages" value="true" />
+  	</javaClientGenerator>
+  	<table schema="reportdb" tableName="ent_shareholder"
+  		domainObjectName="EntShareholder" >
+  	</table>
+  	<table schema="reportdb" tableName="ent_shareholder_list"
+  		domainObjectName="EntShareholderList" >
+  	</table>
+  </context>
+</generatorConfiguration>

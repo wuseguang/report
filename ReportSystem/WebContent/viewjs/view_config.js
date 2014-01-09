@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+$.extend({
+	createTree:function(data){
+		
+	}
+});

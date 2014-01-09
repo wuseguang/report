@@ -1,0 +1,38 @@
+数据组件以dwz基本组件作为显示方式。
+
+数据组件在显示前去数据源拉取数据。==》dataSource、dataField
+
+数据组件需以class='dataWidget'标志
+
+数据组件需要前参数，参数由##包裹，在拉取控件碎片后用replace填充。所有数据控件都需要参数，用来指定datasource。
+
+数据组件的后参数，即当得到数据后，修改现有的属性。用callback实现。以下前面加$的为后参数。
+
+数据组件当拉取数据完显示之后，可能还会包含数据控件，需要前后无依赖，解耦性强。所以都需走initUI过程。
+
+根据显示方式不同分类：
+
+基本组件：
+① text组件，直接的显示dataField的内容。
+	class="dataWidget_text" 
+	attr={showField}
+	callback=null
+
+② link组件，创建dwz <a>组件点击后有divSearch,dialogSearch等。 
+	class="dataWidget_link"
+	attr={target,showField,$href}
+	callback:修改后href。
+	
+集合组件：
+③ table组件，显示多条数据,可以文本显示，可以link组件显示。数据方式{[{},{},..]}
+	config：[{name,label,html:'<a class="dataWidget dataWidget_link" dataSource="###"></a>'}]
+	class:dataWidget-table
+	attr:config====>该表格json配置
+	
+	在html属性中，会以每行的数据填充以##包裹的变量。
+	
+④ info组件，以key-value形式显示不同属性，可以文本形式显示，可以link组件显示。
+	数据方式：{key:value}
+	class:dataWidget-info
+	没对key-value显示在一个dl里面，用dt，dd组件。
+	config：[{name,label,html=''}]
