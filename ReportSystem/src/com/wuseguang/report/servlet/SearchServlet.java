@@ -54,7 +54,12 @@ public abstract class SearchServlet extends JsonServlet {
 		}
 		return json;
 	}
-
+	protected String getParameterByLike(HttpServletRequest request,String key){
+		String v=request.getParameter(key);
+		if(v==null)
+		return null;
+		return "%"+v+"%";
+	}
 	protected abstract BaseExample getExample(HttpServletRequest request);
 	protected abstract String getColumns(HttpServletRequest request);
 

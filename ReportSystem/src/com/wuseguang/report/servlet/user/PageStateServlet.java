@@ -3,6 +3,7 @@ package com.wuseguang.report.servlet.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,7 +13,8 @@ import com.wuseguang.report.servlet.JsonServlet;
 /**
  * Servlet implementation class PageStateServlet
  */
-@WebServlet("/api/page_state")
+@WebServlet(
+		urlPatterns = { "/api/page_state" })
 public class PageStateServlet extends JsonServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -21,6 +23,7 @@ public class PageStateServlet extends JsonServlet {
      */
     public PageStateServlet() {
         super();
+        System.out.println("pageState");
         // TODO Auto-generated constructor stub
     }
 
