@@ -1,0 +1,24 @@
+<div class="pageFormContent dataWidget dataWidget-info" dataSource='api/ent/info?id=#{id}'>
+<fieldset>
+<legend>基本信息</legend>
+<dl class="nowrap"><dt>企业名称</dt><dd>${info.enterpriseNameCh}</dd></dl>
+<dl class="nowrap"><dt>法人代表</dt><dd>${info.enterpriseLegalPersonId}</dd></dl>
+<dl class="nowrap"><dt>组织机构代码</dt><dd>${info.enterpriseDepartCode}</dd></dl>
+<dl class="nowrap"><dt>注册代码</dt><dd>${info.enterpriseRegisterCode}</dd></dl>
+<dl class="nowrap"><dt>营业范围</dt><dd>${info.enterpriseBusinessScope}</dd></dl>
+</fieldset>
+</div>
+<div class="formBar">
+		<ul>
+			<li><div class="buttonActive">
+					<div class="buttonContent">
+						<button type="submit">提交</button>
+					</div>
+				</div></li>
+			<li><div class="button">
+					<div class="buttonContent">
+						<button class="close" type="button">取消</button>
+					</div>
+				</div></li>
+		</ul>
+	</div>

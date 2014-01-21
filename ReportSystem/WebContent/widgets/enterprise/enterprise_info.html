@@ -1,41 +1,32 @@
-<!--
- <option selected="" value="1">  ---  基本信息  ---  </option>
-<option value="8">  ---  股东信息  ---  </option>
-<option value="3">  ---  注册变更  ---  </option>
-<option value="12">  ---  财务信息  ---  </option>
-<option value="7">  ---  关联企业  ---  </option>
-<option value="99">  ---  引用信息  ---  </option>
-<option value="9">  ---  管理人员  ---  </option>
-<option value="13">  ---  房产物业  ---  </option>
-<option value="10">  ---  员工信息  ---  </option>
-<option value="14">  ---  主营业务  ---  </option>
-<option value="15">  ---  采购销售  ---  </option>
-<option value="16">  ---  付款情况  ---  </option>
-<option value="11">  ---  银行信息  ---  </option>
-<option value="4">  ---  重大事件  ---  </option>
-<option value="5">  ---  历史沿革  ---  </option>
-<option value="17">  ---  法律纠纷  ---  </option>
-<option value="18">  ---  抵押记录  ---  </option>
-<option value="19">  ---  公共信息  ---  </option>
- -->
 
-<ul class="tree treeFolde">
-	<li><a>基本信息</a></li>
-	<li><a>股东信息</a></li>
-	<li><a>注册变更</a></li>
-	<li><a>财务信息</a></li>
-	<li><a>关联企业</a></li>
-	<li><a>引用信息</a></li>
-	<li><a>管理人员</a></li>
-	<li><a>房产物业</a></li>
-	<li><a>员工信息</a></li>
-	<li><a>主营业务</a></li>
-	<li><a>采购销售</a></li>
-	<li><a>付款情况</a></li>
-	<li><a>银行信息</a></li>
-	<li><a>重大事件</a></li>
-	<li><a>历史沿革</a></li>
-	<li><a>法律纠纷</a></li>
-	<li><a>抵押记录</a></li>
-	<li><a>公共信息</a></li>
-</ul>
+<div layoutH="36"
+	style="float: left; display: block; overflow: auto; width: 240px; border: solid 1px #CCC; line-height: 21px; background: #fff;margin:10px">
+	<ul class="tree treeFolder">
+		<li><a>企业信息模块</a>
+			<ul>
+				<li><a target="ajax" rel="ent_info_panel"
+					href="widgets/enterprise/info/base.html?id=#{id}">基本信息</a></li>
+				<li><a>股东信息</a></li>
+				<li><a>注册变更</a></li>
+				<li><a>财务信息</a></li>
+				<li><a>关联企业</a></li>
+				<li><a>引用信息</a></li>
+				<li><a>管理人员</a></li>
+				<li><a>房产物业</a></li>
+				<li><a>员工信息</a></li>
+				<li><a>主营业务</a></li>
+				<li><a>采购销售</a></li>
+				<li><a>付款情况</a></li>
+				<li><a>银行信息</a></li>
+				<li><a>重大事件</a></li>
+				<li><a>历史沿革</a></li>
+				<li><a>法律纠纷</a></li>
+				<li><a>抵押记录</a></li>
+				<li><a>公共信息</a></li>
+			</ul></li>
+	</ul>
+</div>
+
+<div id="ent_info_panel" class="unitBox" style="margin: 10px;border: 1px solid rgb(204, 204, 204);"  layoutH="36">
+	<!--#include virtual="list1.html" -->
+</div>
