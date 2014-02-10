@@ -1,0 +1,9 @@
+<script>
+TableConfig['shareholder_search_table']=[{label:'股份类型',html:'${shareholderCurrencyType}'},
+                                 {label:'资金单位',html:'${shareholderCurrencyUnit}'},
+                                 {label:'更新人',html:'${creatorId}'},
+                                 {label:'更新日期',
+                               		  html:'${shareholderUpdatetime}'}]
+</script>
+<div class='dataWidget dataWidget-table' id='shareholder_search_table' dataSource='api/ent/shareholder/info?search=true&entid=#{entid}'>
+</div>

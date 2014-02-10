@@ -20,5 +20,6 @@
         <mapper resource="com/wuseguang/report/db/mapper/CustomerContactMapper.xml"/>
         <mapper resource="com/wuseguang/report/db/mapper/PersonMapper.xml"/>
         <mapper resource="com/wuseguang/report/db/mapper/EnterpriseChinaMapper.xml"/>
+        <mapper resource="com/wuseguang/report/db/mapper/EntShareholderMapper.xml"/>
     </mappers>
 </configuration>

@@ -1,4 +1,4 @@
-
+<h1>#{name}信息模块</h1>
 <div layoutH="36"
 	style="float: left; display: block; overflow: auto; width: 240px; border: solid 1px #CCC; line-height: 21px; background: #fff;margin:10px">
 	<ul class="tree treeFolder">
@@ -6,7 +6,8 @@
 			<ul>
 				<li><a target="ajax" rel="ent_info_panel"
 					href="widgets/enterprise/info/base.html?id=#{id}">基本信息</a></li>
-				<li><a>股东信息</a></li>
+				<li><a target="ajax" rel="ent_info_panel"
+					href="widgets/enterprise/info/shareholder.html?entid=#{id}">股东信息</a></li>
 				<li><a>注册变更</a></li>
 				<li><a>财务信息</a></li>
 				<li><a>关联企业</a></li>
