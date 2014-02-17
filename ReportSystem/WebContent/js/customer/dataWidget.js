@@ -64,7 +64,8 @@ $.fn.dataWidgetTable=function(json){
 		$('<th></th>').text(c).appendTo(header);
 	})
 	var tbody=$('<tbody></tbody>').appendTo(table)
-	searchResult.forEach(function(r){
+	searchResult.forEach(function(r,i){
+		r.index=i;
 		var tr=$('<tr></tr>').appendTo(tbody)
 		tableConfig.forEach(function(rowConfig){
 			var html=rowConfig.html.injectJSON(r);

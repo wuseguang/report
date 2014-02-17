@@ -1,0 +1,33 @@
+<script>
+function shareholderInsertCallback(json){
+	DWZ.ajaxDone(json);
+	alert("增加成功");
+	$('#entNav_shareholder').click()
+	$.pdialog.closeCurrent();
+	//navTab.closeCurrentTab();
+	//$('a[rel=navtab_searchdepart]','#left_container').click();
+}
+</script>
+<form method='post' action='api/ent/shareholder/base_add' onsubmit="return validateCallback(this, shareholderInsertCallback)" >
+<input type="hidden" name="shareholder.entId" value="#{entid}"/>
+<div class="pageFormContent" layoutH="50">
+	<fieldset>
+		<legend>股东基本信息</legend>
+		<dl>
+			<dt>股份类型：</dt>
+			<dd><input class="required" name="shareholder.shareholderCurrencyType"  type="text"/></dd>
+		</dl>
+		<dl>
+			<dt>资金单位：</dt>
+			<dd><input class="required" name="shareholder.shareholderCurrencyUnit" type="text"/></dd>
+		</dl>
+	</fieldset>
+
+</div>
+<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+</div>
+</form>

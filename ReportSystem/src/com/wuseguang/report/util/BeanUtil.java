@@ -31,6 +31,9 @@ public class BeanUtil {
 				SimpleDateFormat simFormat = new SimpleDateFormat("yyyy-MM-dd");
 				setMethod.invoke(bean, new Object[]{simFormat.parse(value)});
 			}
+			else if(argClass==Float.class){
+				setMethod.invoke(bean, new Object[]{Float.parseFloat(value)});
+			}
 		}catch(Exception ex){
 			ex.printStackTrace();
 			return;
