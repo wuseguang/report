@@ -81,6 +81,12 @@ $.fn.dataWidgetTable=function(json){
 	//var pageStr='<div class="pagination" rel="#rel#" targetType="navTab" totalCount="#totalCount#" numPerPage="#numPerPage#" pageNumShown="10" currentPage="1"></div>';
 
 }
+$.fn.dataWidgetShow=function(json){
+	var $this=$(this);
+	var assert=eval($this.attr('assert').injectJSON(json))
+	if(assert)$this.show()
+	else $this.hide()
+}
 $.fn.dataWidgetUpdate=function(dataSource){
 	var $this=$(this);
 	if(dataSource)$this.attr('dataSource',dataSource);
@@ -98,6 +104,7 @@ $.fn.dataWidget=function(){
 		if($this.is('a')&&$this.hasClass('dataWidget-link'))$this.dataWidgetLink(json);
 		if($this.hasClass('dataWidget-table'))$this.dataWidgetTable(json);	
 		if($this.hasClass('dataWidget-info'))$this.dataWidgetInfo(json);	
+		if($this.hasClass('dataWidget-show'))$this.dataWidgetShow(json);
 		$this.data('dataWidgetData',json);
 	})
 }

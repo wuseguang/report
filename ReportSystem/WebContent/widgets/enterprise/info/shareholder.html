@@ -1,17 +1,18 @@
 <script>
 
-TableConfig['shareholder_search_table']=[{label:'股东基本信息',html:''},{label:'操作',html:'<li><a class="edit"><span style="background-position: 0 -796px;">修改</span></a></li>'}];
+TableConfig['shareholder_search_table']=[{label:'股东基本信息',html:''},{label:'操作',html:'<div class="panelBar" style="border:none"><ul class="toolBar"><li><a class="edit"><span>修改</span></a></li></li></ul></div>'}];
 TableConfig['shareholder_search_table'][0].html+='<dl ><dt>股份类型</dt><dd>${shareholderCurrencyType}</dd></dl>';
 TableConfig['shareholder_search_table'][0].html+='<dl ><dt>资金单位</dt><dd>${shareholderCurrencyUnit}</dd></dl>';
 TableConfig['shareholder_search_table'][0].html+='<dl ><dt>更新人</dt><dd>${creatorId}</dd></dl>';
 TableConfig['shareholder_search_table'][0].html+='<dl ><dt>更新日期</dt><dd>${shareholderUpdatetime}</dd></dl>';
 
-TableConfig['shareholder_list_search_table']=[{label:'股东列表',html:''},{label:'操作',html:'<a class="edit">修改</a>'}];
+TableConfig['shareholder_list_search_table']=[{label:'股东列表',html:''},{label:'操作',html:''}];
 TableConfig['shareholder_list_search_table'][0].html+='<dl ><dt>股东名称</dt><dd>${sharehodlerName}</dd></dl>';
 TableConfig['shareholder_list_search_table'][0].html+='<dl ><dt>股东股份</dt><dd>${shareholderContribute}</dd></dl>';
 TableConfig['shareholder_list_search_table'][0].html+='<dl <dt>股东股份比例(%)</dt><dd>${shareholderContributeRatio}</dd></dl>';
 TableConfig['shareholder_list_search_table'][0].html+='<dl ><dt>股东性质</dt><dd>${shareholderType}</dd></dl>';
 TableConfig['shareholder_list_search_table'][0].html+='<dl class="nowrap"><dt>股东背景</dt><dd>${shareholderBackground}</dd></dl>';
+TableConfig['shareholder_list_search_table'][1].html+='<div class="panelBar" style="border:none"><ul class="toolBar"><li style="margin-bottom:3px"><a class="edit"><span>修改</span></a></li><li><a class="delete"><span>删除</span></a></li></ul></div>';
 //TableConfig['shareholder_list_search_table'][1]={label:'索引',html:'${index}'};                                 
 </script>
 <style>
@@ -27,7 +28,9 @@ TableConfig['shareholder_list_search_table'][0].html+='<dl class="nowrap"><dt>�
 </style>
 <div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" href="widgets/enterprise/shareholder/base_add.html?entid=#{entid}" target="dialog"><span>添加基本信息</span></a></li>
+			<li class='dataWidget dataWidget-show' dataSource='api/ent/shareholder/info?count=true&entid=#{entid}' assert='${totalCount}==0'>
+			<a class="add" href="widgets/enterprise/shareholder/base_add.html?entid=#{entid}" target="dialog"><span>添加基本信息</span></a>
+			</li>
 			<li><a class="add" href="widgets/enterprise/shareholder/add.html?entid=#{entid}" target="dialog"><span>添加股东</span></a></li>
 			<li><a class="edit" href="demo_page4.html?uid={sid_user}" target="navTab" warn="请选择一个用户"><span>修改</span></a></li>
 		</ul>
@@ -35,7 +38,7 @@ TableConfig['shareholder_list_search_table'][0].html+='<dl class="nowrap"><dt>�
 <div class='pageFormContent'>
 <div class='dataWidget dataWidget-table' id='shareholder_search_table' dataSource='api/ent/shareholder/info?search=true&entid=#{entid}'>
 </div> 
-<br/>
+<br/><br/><br/>
 <div class='dataWidget dataWidget-table' id='shareholder_list_search_table' dataSource='api/ent/shareholder/list?search=true&entid=#{entid}'>
 </div>
 </div>

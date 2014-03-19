@@ -1,0 +1,4 @@
+自动生成代码计划：
+具备：pojo,dao。
+生成：insert，update，search，delete四个servlet。（自动填充dao，pojo；手动输入columns）
+生成：增，改，查三个页面。（列出所有的列，供选择）
