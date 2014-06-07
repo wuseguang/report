@@ -5,7 +5,7 @@
 function loginCallback(json){
 	DWZ.ajaxDone(json);
 	if(json.ret){
-		$('#left_container').loadUrl('/ReportSystem/api/page_state',{dataType:'json'},null);
+		$('#left_container').loadUrl('/ReportSystem/api/pageState',{dataType:'json'},null);
 		$.pdialog.close("login");
 	}else if(json.msg){
 		$('#login_msg').html(json.msg);

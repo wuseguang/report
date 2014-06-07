@@ -147,7 +147,7 @@ $
 							[ "邮箱", "电话", "QQ", "地址" ] ]
 				},
 				_json2widget : {
-					'/ReportSystem/api/page_state' : function(json) {
+					'/ReportSystem/api/pageState' : function(json) {
 						var viewdata = $.view_config["role." + json.role]
 								|| '没有该角色的对应界面';
 						// alert(JSON.stringify(viewdata))

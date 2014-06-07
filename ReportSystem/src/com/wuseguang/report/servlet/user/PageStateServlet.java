@@ -13,26 +13,25 @@ import com.wuseguang.report.servlet.JsonServlet;
 /**
  * Servlet implementation class PageStateServlet
  */
-@WebServlet(
-		urlPatterns = { "/api/page_state" })
+@WebServlet(urlPatterns = { "/api/pageState" }, initParams = {})
 public class PageStateServlet extends JsonServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see JsonServlet#JsonServlet()
-     */
-    public PageStateServlet() {
-        super();
-        System.out.println("pageState");
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see JsonServlet#JsonServlet()
+	 */
+	public PageStateServlet() {
+		super();
+		System.out.println("pageState");
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	protected Map processRequest(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		UserBase user=(UserBase) request.getSession().getAttribute("user");
-		String role=(String) request.getSession().getAttribute("role");
-		Map json=new HashMap();
+		UserBase user = (UserBase) request.getSession().getAttribute("user");
+		String role = (String) request.getSession().getAttribute("role");
+		Map json = new HashMap();
 		json.put("username", user.getUserName());
 		json.put("role", role);
 		return json;
